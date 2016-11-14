@@ -22,12 +22,12 @@ def parse(String description) {
 }
 
 def myWOLCommand() {
-    def result = new physicalgraph.device.HubAction (
-        "wake on lan 94:DE:80:66:26:F6':'>",
+  sendHubCommand(new physicalgraph.device.HubAction (
+        "wake on lan 94DE806626F6",
         physicalgraph.device.Protocol.LAN,
         null,
         [:]
-    )
+    ))
     return result
 }
 
@@ -37,3 +37,4 @@ def refresh() {
     def result = myWOLCommand()
     log.debug "result ${result}" // this prints result myrealmacid
 }
+
